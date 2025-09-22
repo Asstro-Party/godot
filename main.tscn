@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://2hjkgsa23y10"]
+
+[ext_resource type="Script" uid="uid://dq4o4e0i8abei" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dmh8akufwlwn7" path="res://camera_2d.gd" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(20, 34.274727)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.829412, 16.22502)
+color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+script = ExtResource("2_0xm2m")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="CanvasLayer"]
+position = Vector2(368, 246)
+script = ExtResource("1_ig7tw")
+speed = 400.0
+bullet_radius = 5.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/RigidBody2D"]
+position = Vector2(123.99999, 16.999998)
+scale = Vector2(40, 40)
+polygon = PackedVector2Array(-5, 1, -3, -3, -1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/RigidBody2D"]
+position = Vector2(-2, -1)
+color = Color(0.43529412, 1, 1, 1)
+polygon = PackedVector2Array(6, -105, -73, 57, 85, 57)
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+
+[node name="top wall" type="StaticBody2D" parent="CanvasLayer/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/top wall"]
+position = Vector2(550, 4)
+scale = Vector2(60, 1.185)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="left wall" type="StaticBody2D" parent="CanvasLayer/Node2D"]
+position = Vector2(-8, 822)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/left wall"]
+position = Vector2(550, 4)
+scale = Vector2(60, 1.185)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="bottom wall" type="StaticBody2D" parent="CanvasLayer/Node2D"]
+position = Vector2(-8, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/bottom wall"]
+position = Vector2(550, 4)
+scale = Vector2(60, 1.185)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="right wall" type="StaticBody2D" parent="CanvasLayer/Node2D"]
+position = Vector2(1150, 822)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Node2D/right wall"]
+position = Vector2(550, 4)
+scale = Vector2(60, 1.185)
+shape = SubResource("RectangleShape2D_0xm2m")

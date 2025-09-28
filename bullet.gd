@@ -19,4 +19,4 @@ func _ready():
 
 	
 func _process(delta: float) -> void:
-	position += transform.y * 600 *delta
+	position -= transform.y * 600 *delta

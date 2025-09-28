@@ -14,7 +14,7 @@ func _ready():
 		Vector2(radius, height / 2),
 		Vector2(-radius, height / 2)
 	]
-	poly.color = Color(0.65, 0.32, 0.17, 0.5) # semi-transparent red
+	poly.color = Color(0.65, 0.32, 0.17, 0.5)
 	add_child(poly)
 
 	

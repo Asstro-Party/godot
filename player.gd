@@ -33,7 +33,7 @@ func _physics_process(delta):
 func shoot_bullet():
 	
 		var bullet_instance = bullet.instantiate()
-		var spawn_offset = transform.y * -150  # Negative so it spawns "forward" instead of behind
+		var spawn_offset = transform.y * -125  # Negative so it spawns "forward" instead of behind
 		bullet_instance.global_transform.origin = global_transform.origin + spawn_offset
 		bullet_instance.rotation = rotation
 		
